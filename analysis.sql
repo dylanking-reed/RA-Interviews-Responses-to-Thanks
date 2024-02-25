@@ -2,26 +2,26 @@
 .import "RA Interviews Responses to Thanks.csv" responses
 .headers on
 
-create table thanks_level as select "Thanks Level", count(*) as "#Interviews", 
-(cast(sum("No problem") as real)/count(*))*100 as "%No problem",
-(cast(sum("You're Welcome") as real)/count(*))*100 as "%You're Welcome",
-(cast(sum("Acknowledgement") as real)/count(*))*100 as "%Acknowledgement",
-(cast(sum("Farewell") as real)/count(*))*100  as "%Farewell",
-(cast(sum("Non-Verbal") as real)/count(*))*100 as "%Non-Verbal",
-(cast(sum("No Response") as real)/count(*))*100 as "%No Response"
+create table thanks_level as select "Thanks Level", "Age Bin", count(*) as "#Interviews", 
+round(cast(sum("No problem") as real)/count(*)*100, 1) as "%No problem",
+round(cast(sum("You're Welcome") as real)/count(*)*100, 1) as "%You're Welcome",
+round(cast(sum("Acknowledgement") as real)/count(*)*100, 1) as "%Acknowledgement",
+round(cast(sum("Farewell") as real)/count(*)*100, 1)  as "%Farewell",
+round(cast(sum("Non-Verbal") as real)/count(*)*100, 1) as "%Non-Verbal",
+round(cast(sum("No Response") as real)/count(*)*100, 1) as "%No Response"
 from responses
-group by "Thanks Level";
+group by "Thanks Level", "Age Bin";
 
 .output Analysis/thanks_level.csv   
 select * from thanks_level;
 
 create table age_bin as select "Age Bin", count(*) as "#Interviews", 
-(cast(sum("No problem") as real)/count(*))*100 as "%No problem",
-(cast(sum("You're Welcome") as real)/count(*))*100 as "%You're Welcome",
-(cast(sum("Acknowledgement") as real)/count(*))*100 as "%Acknowledgement",
-(cast(sum("Farewell") as real)/count(*))*100  as "%Farewell",
-(cast(sum("Non-Verbal") as real)/count(*))*100 as "%Non-Verbal",
-(cast(sum("No Response") as real)/count(*))*100 as "%No Response"
+round(cast(sum("No problem") as real)/count(*)*100, 1) as "%No problem",
+round(cast(sum("You're Welcome") as real)/count(*)*100, 1) as "%You're Welcome",
+round(cast(sum("Acknowledgement") as real)/count(*)*100, 1) as "%Acknowledgement",
+round(cast(sum("Farewell") as real)/count(*)*100, 1)  as "%Farewell",
+round(cast(sum("Non-Verbal") as real)/count(*)*100, 1) as "%Non-Verbal",
+round(cast(sum("No Response") as real)/count(*)*100, 1) as "%No Response"
 from responses
 group by "Age Bin";
 
@@ -29,41 +29,41 @@ group by "Age Bin";
 .output Analysis/age_bin.csv         
 select * from age_bin;
 
-create table on_campus as select "On Campus", count(*) as "#Interviews", 
-(cast(sum("No problem") as real)/count(*))*100 as "%No problem",
-(cast(sum("You're Welcome") as real)/count(*))*100 as "%You're Welcome",
-(cast(sum("Acknowledgement") as real)/count(*))*100 as "%Acknowledgement",
-(cast(sum("Farewell") as real)/count(*))*100  as "%Farewell",
-(cast(sum("Non-Verbal") as real)/count(*))*100 as "%Non-Verbal",
-(cast(sum("No Response") as real)/count(*))*100 as "%No Response"
+create table on_campus as select "On Campus", "Age Bin", count(*) as "#Interviews", 
+round(cast(sum("No problem") as real)/count(*)*100, 1) as "%No problem",
+round(cast(sum("You're Welcome") as real)/count(*)*100, 1) as "%You're Welcome",
+round(cast(sum("Acknowledgement") as real)/count(*)*100, 1) as "%Acknowledgement",
+round(cast(sum("Farewell") as real)/count(*)*100, 1)  as "%Farewell",
+round(cast(sum("Non-Verbal") as real)/count(*)*100, 1) as "%Non-Verbal",
+round(cast(sum("No Response") as real)/count(*)*100, 1) as "%No Response"
 from responses
-group by "On Campus";
+group by "On Campus", "Age Bin";
 
 .output Analysis/on_campus.csv    
 select * from on_campus; 
 
-create table familiarity as select "Familiarity", count(*) as "#Interviews", 
-(cast(sum("No problem") as real)/count(*))*100 as "%No problem",
-(cast(sum("You're Welcome") as real)/count(*))*100 as "%You're Welcome",
-(cast(sum("Acknowledgement") as real)/count(*))*100 as "%Acknowledgement",
-(cast(sum("Farewell") as real)/count(*))*100  as "%Farewell",
-(cast(sum("Non-Verbal") as real)/count(*))*100 as "%Non-Verbal",
-(cast(sum("No Response") as real)/count(*))*100 as "%No Response"
+create table familiarity as select "Familiarity", "Age Bin", count(*) as "#Interviews", 
+round(cast(sum("No problem") as real)/count(*)*100, 1) as "%No problem",
+round(cast(sum("You're Welcome") as real)/count(*)*100, 1) as "%You're Welcome",
+round(cast(sum("Acknowledgement") as real)/count(*)*100, 1) as "%Acknowledgement",
+round(cast(sum("Farewell") as real)/count(*)*100, 1)  as "%Farewell",
+round(cast(sum("Non-Verbal") as real)/count(*)*100, 1) as "%Non-Verbal",
+round(cast(sum("No Response") as real)/count(*)*100, 1) as "%No Response"
 from responses
-group by "Familiarity";
+group by "Familiarity", "Age Bin";
 
 .output Analysis/familiarity.csv
 select * from familiarity; 
 
-create table distractedness as select "Distractedness",count(*) as "#Interviews", 
-(cast(sum("No problem") as real)/count(*))*100 as "%No problem",
-(cast(sum("You're Welcome") as real)/count(*))*100 as "%You're Welcome",
-(cast(sum("Acknowledgement") as real)/count(*))*100 as "%Acknowledgement",
-(cast(sum("Farewell") as real)/count(*))*100  as "%Farewell",
-(cast(sum("Non-Verbal") as real)/count(*))*100 as "%Non-Verbal",
-(cast(sum("No Response") as real)/count(*))*100 as "%No Response"
+create table distractedness as select "Distractedness","Age Bin",count(*) as "#Interviews", 
+round(cast(sum("No problem") as real)/count(*)*100, 1) as "%No problem",
+round(cast(sum("You're Welcome") as real)/count(*)*100, 1) as "%You're Welcome",
+round(cast(sum("Acknowledgement") as real)/count(*)*100, 1) as "%Acknowledgement",
+round(cast(sum("Farewell") as real)/count(*)*100, 1)  as "%Farewell",
+round(cast(sum("Non-Verbal") as real)/count(*)*100, 1) as "%Non-Verbal",
+round(cast(sum("No Response") as real)/count(*)*100, 1) as "%No Response"
 from responses
-group by "Distractedness";      
+group by "Distractedness", "Age Bin";      
 
 .output Analysis/distractedness.csv 
 select * from distractedness;
