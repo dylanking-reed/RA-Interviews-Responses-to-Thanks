@@ -1,0 +1,4 @@
+Download the responses from the google form into "(Exported from Sheets) Responses to Thanks.csv"
+Run "cleaning.py" using python3
+Make "Analysis" directory
+Run "analysis.sql" using sqlite3
