@@ -3,7 +3,7 @@ import csv
 FIELDNAMES_ORIGINAL = [
     "Timestamp",
     "Your Name ",
-    "interview Prompt",
+    "Thanking Prompt",
     "Response",
     "Age Bin",
     "Location",
@@ -54,7 +54,7 @@ def clean_interview(src: dict) -> dict:
     clean = {
         "Timestamp": src["Timestamp"],
         "Thanker": src["Your Name "],
-        "Thanks Level": clean_thanks_level(src["interview Prompt"]),
+        "Thanks Level": clean_thanks_level(src["Thanking Prompt"]),
         "Age Bin": clean_age_bin(src["Age Bin"]),
         "On Campus": clean_location(src["Location"]),
         "Familiarity": src["How familiar is the person to you?"],
