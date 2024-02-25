@@ -1,5 +1,5 @@
 .mode csv
-.import "Responses to Thanks (Cleaned).csv" responses
+.import "RA Interviews Responses to Thanks.csv" responses
 .headers on
 
 create table thanks_level as select "Thanks Level", count(*) as "#Interviews", 
@@ -67,4 +67,17 @@ group by "Distractedness";
 
 .output Analysis/distractedness.csv 
 select * from distractedness;
+
+create table age_bin_by_on_campus as select 
+  "On Campus",
+  count(*) as "#Interviews",
+  count(case when "Age Bin" = 20 then "Age Bin" end) as "#20yo Age Bin",
+  count(case when "Age Bin" = 35 then "Age Bin" end) as "#35yo Age Bin",
+  count(case when "Age Bin" = 50 then "Age Bin" end) as "#50yo Age Bin",
+  count(case when "Age Bin" = 65 then "Age Bin" end) as "#65yo Age Bin"
+from responses 
+group by "On Campus";
+
+.output Analysis/age_bin_by_on_campus.csv 
+select * from age_bin_by_on_campus;
 .exit
