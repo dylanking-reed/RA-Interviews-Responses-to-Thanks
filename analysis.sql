@@ -80,4 +80,11 @@ group by "On Campus";
 
 .output Analysis/age_bin_by_on_campus.csv 
 select * from age_bin_by_on_campus;
+
+.output stdout
+select count(*) 
+  from responses 
+  where "Age Bin" == 20 
+  and "On Campus" == 1        
+  and "No problem" == 1;
 .exit
